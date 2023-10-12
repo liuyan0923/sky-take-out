@@ -19,4 +19,10 @@ public interface EmployeeService {
     Result<String> saveEmployee(EmployeeDTO employeeDTO);
 
     Result<PageResult> page(EmployeePageQueryDTO employeeDTO);
+
+    Result stopOrStart(Integer status,Long id);
+
+    Result<Employee> getEmployee(Long id);
+
+    Result update(EmployeeDTO employeeDTO);
 }

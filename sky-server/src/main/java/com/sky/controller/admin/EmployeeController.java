@@ -85,4 +85,22 @@ public class EmployeeController {
     public Result<PageResult> page(EmployeePageQueryDTO employeeDTO) {
         return employeeService.page(employeeDTO);
     }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用或禁用账号")
+    public Result stopOrStart(@PathVariable("status") Integer status,Long id) {
+        return employeeService.stopOrStart(status,id);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation("根据ID查询账号")
+    public Result<Employee> getEmployee(@PathVariable("id")Long id) {
+        return employeeService.getEmployee(id);
+    }
+
+    @PutMapping
+    @ApiOperation("根据Id修改账号")
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        return employeeService.update(employeeDTO);
+    }
 }
